@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Hazards" load_steps=2 format=3 uid="uid://dt4tm4gn6mu5k"]
+
+[ext_resource type="Script" path="res://Hazards.gd" id="1_53lx0"]
+
+[resource]
+script = ExtResource("1_53lx0")
+hazard_name = "Slippery Rocks"
+description = "You chance opun slippery rocks and debris."
+stat_to_overcome = 3
+good_outcome = "Dexterity Succes:
+Being a nimble and adept you manage to cross safely. "
+bad_outcome = "Dexterity Failure:
+You trip and hurt yourself."
+stuff_to_loose = 0
+min_damage_amount = 1
+max_damage_amount = 4

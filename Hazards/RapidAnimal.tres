@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Hazards" load_steps=2 format=3 uid="uid://bmvmrliobtqoi"]
+
+[ext_resource type="Script" path="res://Hazards.gd" id="1_s63gi"]
+
+[resource]
+script = ExtResource("1_s63gi")
+hazard_name = "RapidAnimal"
+description = "An abandoned crazed dog leaps out of an abandoned house and attacks you!"
+stat_to_overcome = 0
+good_outcome = "Strength Succes:
+You place a solid kick in the head of the dog. Dazed and whimpering it limps away deciding to find better prey elsewhere.. "
+bad_outcome = "Strength Failure:
+The dog bites and claws at you before you manege to leap across an obstacle it can't follow."
+stuff_to_loose = 0
+min_damage_amount = 1
+max_damage_amount = 4
