@@ -4,8 +4,9 @@ extends Control
 var wasteland_ticks : int = 0
 var distance_from_safehouse : int = 0
 
-@onready var dicebag = Dicebag.new()
+var debug = true
 
+@onready var dicebag = Dicebag.new()
 @onready var storyteller = $Storyteller
 @onready var exploration_tick_timer = $ExplorationTickTimer
 @onready var health_bar = $HealthBar

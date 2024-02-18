@@ -1,0 +1,111 @@
+[gd_scene load_steps=9 format=3 uid="uid://co1tpwdpfc23o"]
+
+[ext_resource type="Script" path="res://UI_init.gd" id="1_j44u1"]
+[ext_resource type="Script" path="res://Storyteller.gd" id="2_qy66y"]
+[ext_resource type="Script" path="res://PlayerDataObject.gd" id="3_v1l3t"]
+[ext_resource type="Script" path="res://WorldMechanics.gd" id="4_bosov"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3c2i6"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ttloa"]
+bg_color = Color(0.870588, 0, 0.0627451, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wdmpq"]
+bg_color = Color(0.337255, 0.701961, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_exy8d"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_j44u1")
+
+[node name="explore_wasteland_button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 209.0
+offset_right = 247.0
+offset_bottom = 240.0
+text = "Explore the wasteland"
+
+[node name="return_from_wasteland" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 66.0
+offset_top = 265.0
+offset_right = 283.0
+offset_bottom = 296.0
+text = "Return from the wasteland
+"
+
+[node name="Storyteller" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 638.0
+offset_top = 136.0
+offset_right = 932.0
+offset_bottom = 373.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_3c2i6")
+bbcode_enabled = true
+text = "Storyteller
+"
+scroll_following = true
+script = ExtResource("2_qy66y")
+
+[node name="ExplorationTickTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 58.0
+offset_right = 215.0
+offset_bottom = 104.0
+theme_override_styles/background = SubResource("StyleBoxFlat_ttloa")
+theme_override_styles/fill = SubResource("StyleBoxFlat_wdmpq")
+max_value = 10.0
+step = 1.0
+value = 5.0
+show_percentage = false
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="HealthBar"]
+layout_mode = 0
+offset_right = 136.0
+offset_bottom = 42.0
+text = "Health
+5/10
+"
+horizontal_alignment = 1
+
+[node name="DistanceLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 123.0
+offset_right = 259.0
+offset_bottom = 172.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_exy8d")
+text = "Distance from safehouse:
+ "
+
+[node name="RestButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 311.0
+offset_right = 118.0
+offset_bottom = 342.0
+text = "Rest"
+
+[node name="PlayerDataObject" type="Node" parent="."]
+script = ExtResource("3_v1l3t")
+
+[node name="WorldMechanics" type="Node" parent="."]
+script = ExtResource("4_bosov")
+
+[connection signal="pressed" from="explore_wasteland_button" to="." method="_on_explore_wasteland_button_pressed"]
+[connection signal="pressed" from="return_from_wasteland" to="." method="_on_return_from_wasteland_pressed"]
+[connection signal="timeout" from="ExplorationTickTimer" to="." method="_on_exploration_tick_timer_timeout"]
+[connection signal="pressed" from="RestButton" to="." method="_on_rest_button_pressed"]

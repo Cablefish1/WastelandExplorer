@@ -1,0 +1,17 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1708258468
+export_presets.cfg::TextFile::-1::1708258421::0::1::::<><>::
+Hazards.gd::GDScript::-1::1708258421::0::1::::Hazards<>Resource<>::
+icon.svg::CompressedTexture2D::7056529099869206542::1708258421::1708258469::1::::<><>::
+PlayerDataObject.gd::GDScript::-1::1708258421::0::1::::<>Node<>::
+Storyteller.gd::GDScript::-1::1708258421::0::1::::<>RichTextLabel<>::
+ui.tscn::PackedScene::5810340570531786162::1708258421::0::1::::<><>::res://UI_init.gd<>res://Storyteller.gd<>res://PlayerDataObject.gd<>res://WorldMechanics.gd
+UI_init.gd::GDScript::-1::1708258421::0::1::::<>Control<>::
+WorldMechanics.gd::GDScript::-1::1708258421::0::1::::<>Node<>::
+::res://dicebag-godot/::1708258421
+Dicebag.gd::GDScript::-1::1708258421::0::1::::Dicebag<>RefCounted<>::
+icon.png::CompressedTexture2D::3011431663019999359::1708258421::1708258469::1::::<><>::
+README.md::TextFile::-1::1708258421::0::1::::<><>::
+::res://Hazards/::1708258421
+RapidAnimal.tres::Resource/Hazards::3272798293347810700::1708258421::0::1::::<><>::res://Hazards.gd
+SlipperyRocks.tres::Resource/Hazards::8553893620537636934::1708258421::0::1::::<><>::res://Hazards.gd
