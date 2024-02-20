@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_s63gi")
-hazard_name = "RapidAnimal"
+hazard_name = "Rabid Animal"
 description = "An abandoned crazed dog leaps out of an abandoned house and attacks you!"
 stat_to_overcome = 0
 good_outcome = "Strength Succes:

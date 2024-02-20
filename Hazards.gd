@@ -10,6 +10,8 @@ class_name Hazards
 
 @export_enum("Strength", "Perception", "Constitution", "Dexterity", "Intelligence", "Charisma") var stat_to_overcome
 
+@export var dificulty : int = 25
+
 @export_multiline var good_outcome
 @export_multiline var bad_outcome
 
