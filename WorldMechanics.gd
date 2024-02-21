@@ -14,12 +14,12 @@ func resolve_hazard():
 	# The folloing array translates the hazards enum to a string that can be read by the dictionary in the playerscript. 
 	# Very important this is identical to the stat order in the PlayerDataObject!
 	var stats = ["Strength", "Perception", "Constitution", "Dexterity", "Intelligence", "Charisma"] 
-	if player.roll_stat(stats[hazard.stat_to_overcome]) == true:
-		storyteller.tell_player(hazard.good_outcome)
+	if player.roll_stat(stats[hazard.stat_to_overcome], hazard.dificulty) == true:
+		storyteller.tell_player("[color=green]"+hazard.good_outcome+"[/color]")
 		#reward player
 		return
 	else:
-		storyteller.tell_player(hazard.bad_outcome)
+		storyteller.tell_player("[color=red]"+hazard.bad_outcome+"[/color]")
 		#resolve bad stuff + check if dead
 		
 	

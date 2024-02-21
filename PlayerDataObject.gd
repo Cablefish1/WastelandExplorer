@@ -18,17 +18,20 @@ extends Node
 }
 
 
-func roll_stat(stat):
-	print(stat)
+func roll_stat(stat_name,dificulty):
+	print(stat_name)
 	
-	#THE RIGHT STAT IS NOW BEING SENT TO THIS SCRIPT
-'''	if stats.has(stat):
-		print(stats.stat)
+	if stats.has(stat_name):
+		randomize()
 		var stat_roll = dicebag.roll_dice(1,100)
-		stat_roll = stat_roll + stats.stat
-		print("STAT FOUND")
-		return true
-	else: print("ERROR NONEXISTING STAT!")'''
+		print(stat_roll)
+		stat_roll = stat_roll + stats[stat_name]
+		print(stat_roll)
+		if (stat_roll >= dificulty):
+			return true
+		else: return false
+		
+	else: print("ERROR NONEXISTING STAT!")
 		
 
 # Called when the node enters the scene tree for the first time.
