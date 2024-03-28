@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://co1tpwdpfc23o"]
+[gd_scene load_steps=10 format=3 uid="uid://co1tpwdpfc23o"]
 
 [ext_resource type="Script" path="res://UI_init.gd" id="1_j44u1"]
 [ext_resource type="Script" path="res://Storyteller.gd" id="2_qy66y"]
 [ext_resource type="Script" path="res://PlayerDataObject.gd" id="3_v1l3t"]
 [ext_resource type="Script" path="res://WorldMechanics.gd" id="4_bosov"]
+[ext_resource type="Script" path="res://StatsPanel.gd" id="5_0jc0r"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3c2i6"]
 bg_color = Color(0, 0, 0, 1)
@@ -26,10 +27,10 @@ script = ExtResource("1_j44u1")
 
 [node name="explore_wasteland_button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 67.0
-offset_top = 209.0
-offset_right = 247.0
-offset_bottom = 240.0
+offset_left = 83.0
+offset_top = 203.0
+offset_right = 263.0
+offset_bottom = 234.0
 text = "Explore the wasteland"
 
 [node name="return_from_wasteland" type="Button" parent="."]
@@ -93,10 +94,10 @@ text = "Distance from safehouse:
 
 [node name="RestButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 76.0
-offset_top = 311.0
-offset_right = 118.0
-offset_bottom = 342.0
+offset_left = 22.0
+offset_top = 201.0
+offset_right = 64.0
+offset_bottom = 232.0
 text = "Rest"
 
 [node name="PlayerDataObject" type="Node" parent="."]
@@ -105,7 +106,24 @@ script = ExtResource("3_v1l3t")
 [node name="WorldMechanics" type="Node" parent="."]
 script = ExtResource("4_bosov")
 
+[node name="ShowStatsButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 290.0
+offset_right = 186.0
+offset_bottom = 321.0
+text = "Show Stats "
+
+[node name="StatsPanel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 269.0
+offset_top = 94.0
+offset_right = 625.0
+offset_bottom = 402.0
+script = ExtResource("5_0jc0r")
+
 [connection signal="pressed" from="explore_wasteland_button" to="." method="_on_explore_wasteland_button_pressed"]
 [connection signal="pressed" from="return_from_wasteland" to="." method="_on_return_from_wasteland_pressed"]
 [connection signal="timeout" from="ExplorationTickTimer" to="." method="_on_exploration_tick_timer_timeout"]
 [connection signal="pressed" from="RestButton" to="." method="_on_rest_button_pressed"]
+[connection signal="pressed" from="ShowStatsButton" to="StatsPanel" method="_on_show_stats_button_pressed"]
