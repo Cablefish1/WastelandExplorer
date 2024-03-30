@@ -3,6 +3,7 @@ extends Control
 ###player vars
 var wasteland_ticks : int = 0
 var distance_from_safehouse : int = 0
+var chance_of_hazards : int = 20 #chance of encountering something in the wasteland in percent.
 
 var debug = true
 
@@ -66,7 +67,7 @@ func _on_exploration_tick_timer_timeout():
 	distance_from_safehouse += 10
 	check_if_won()
 	update_distance_label()
-	if distance_from_safehouse % 60 == 0:
+	if (dicebag.roll_dice(1, 100) <= chance_of_hazards):
 		storyteller.tell_player("[color=yellow]Something hazardous happened in the wasteland.[/color]")
 		world_mechanics.resolve_hazard()
 		if check_if_dead() == true:
@@ -85,23 +86,6 @@ func update_health_bar():
 	
 
 
-func resolve_hazard():
-	
-	
-	
-	''' OLD RESOLVE HAZARD
-	if dicebag.flip_coin() == true:
-		var damage_taken = dicebag.roll_dice(1,10) 
-		storyteller.newline()
-		storyteller.append_text("[color=red]You stumble and hurt yourself taking "+str(damage_taken)+" damage.[/color]")
-		player.health = player.health - damage_taken
-		update_health_bar()
-		check_if_dead()
-	else:
-		storyteller.newline()
-		storyteller.append_text("[color=green]But you got lucky and avoided it.[/color]")
-	
-'''
 
 func check_if_dead():
 	if player.health <= 0:
@@ -120,7 +104,7 @@ func update_distance_label():
 	distance_label.set_text("Distance from safehouse:\n"+str(distance_from_safehouse)+" meters")
 
 func check_if_won():
-	if distance_from_safehouse >= 1000:
+	if distance_from_safehouse >= 2000:
 		storyteller.tell_player("[color=blue]You finally find a safer safehouse! Congratulations! You have won the game.[/color]")
 		exploration_tick_timer.stop()
 		hide_all_buttons()
@@ -129,4 +113,5 @@ func hide_all_buttons():
 	$explore_wasteland_button.hide()
 	$return_from_wasteland.hide()
 	$RestButton.hide()
+
 

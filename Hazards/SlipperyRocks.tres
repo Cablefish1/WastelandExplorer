@@ -7,6 +7,7 @@ script = ExtResource("1_53lx0")
 hazard_name = "Slippery Rocks"
 description = "You chance opun slippery rocks and debris."
 stat_to_overcome = 3
+dificulty = 40
 good_outcome = "Dexterity Succes:
 Being a nimble and adept you manage to cross safely. "
 bad_outcome = "Dexterity Failure:

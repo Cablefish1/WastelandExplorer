@@ -7,6 +7,7 @@ script = ExtResource("1_s63gi")
 hazard_name = "Rabid Animal"
 description = "An abandoned crazed dog leaps out of an abandoned house and attacks you!"
 stat_to_overcome = 0
+dificulty = 40
 good_outcome = "Strength Succes:
 You place a solid kick in the head of the dog. Dazed and whimpering it limps away deciding to find better prey elsewhere.. "
 bad_outcome = "Strength Failure:

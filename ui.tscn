@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://co1tpwdpfc23o"]
+[gd_scene load_steps=13 format=3 uid="uid://co1tpwdpfc23o"]
 
 [ext_resource type="Script" path="res://UI_init.gd" id="1_j44u1"]
 [ext_resource type="Script" path="res://Storyteller.gd" id="2_qy66y"]
 [ext_resource type="Script" path="res://PlayerDataObject.gd" id="3_v1l3t"]
 [ext_resource type="Script" path="res://WorldMechanics.gd" id="4_bosov"]
 [ext_resource type="Script" path="res://StatsPanel.gd" id="5_0jc0r"]
+[ext_resource type="Script" path="res://StatGainPopup.gd" id="5_4d2oi"]
+[ext_resource type="PackedScene" uid="uid://d0wiixpescf8i" path="res://stat_gained_popup.tscn" id="6_n2tkg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3c2i6"]
 bg_color = Color(0, 0, 0, 1)
@@ -16,6 +18,9 @@ bg_color = Color(0.870588, 0, 0.0627451, 1)
 bg_color = Color(0.337255, 0.701961, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_exy8d"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bs6mu"]
 bg_color = Color(0, 0, 0, 1)
 
 [node name="UI" type="Control"]
@@ -61,10 +66,10 @@ wait_time = 2.0
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 layout_mode = 0
-offset_left = 78.0
-offset_top = 58.0
-offset_right = 215.0
-offset_bottom = 104.0
+offset_left = 93.0
+offset_top = 430.0
+offset_right = 230.0
+offset_bottom = 476.0
 theme_override_styles/background = SubResource("StyleBoxFlat_ttloa")
 theme_override_styles/fill = SubResource("StyleBoxFlat_wdmpq")
 max_value = 10.0
@@ -108,18 +113,24 @@ script = ExtResource("4_bosov")
 
 [node name="ShowStatsButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 89.0
-offset_top = 290.0
-offset_right = 186.0
-offset_bottom = 321.0
+offset_left = 407.0
+offset_top = 85.0
+offset_right = 504.0
+offset_bottom = 116.0
 text = "Show Stats "
+
+[node name="StatGainPopup" type="Marker2D" parent="ShowStatsButton"]
+position = Vector2(47, 0)
+script = ExtResource("5_4d2oi")
+popup_node = ExtResource("6_n2tkg")
 
 [node name="StatsPanel" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 269.0
-offset_top = 94.0
-offset_right = 625.0
-offset_bottom = 402.0
+offset_left = 333.0
+offset_top = 119.0
+offset_right = 574.0
+offset_bottom = 390.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_bs6mu")
 script = ExtResource("5_0jc0r")
 
 [connection signal="pressed" from="explore_wasteland_button" to="." method="_on_explore_wasteland_button_pressed"]
