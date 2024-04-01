@@ -2,7 +2,7 @@ extends Node
 
 @onready var player = $"../PlayerDataObject"
 @onready var dicebag = Dicebag.new()
-@export var chance_of_hazards : int = 15 #chance of encountering a hazard in percent
+@export var chance_of_hazards : int = 20 #chance of encountering a hazard in percent
 @onready var storyteller = $"../Storyteller"
 
 var stat_improved : String  = ""
@@ -18,7 +18,7 @@ func resolve_hazard():
 
 	if player.roll_stat(stats[hazard.stat_to_overcome], hazard.dificulty) == true:
 		storyteller.tell_player("[color=green]"+hazard.good_outcome+"[/color]")
-		var stat_after_roll = player.stats[hazard.stat_to_overcome]
+		
 
 	else:
 		storyteller.tell_player("[color=red]"+hazard.bad_outcome+"[/color]")

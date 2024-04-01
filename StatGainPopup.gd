@@ -1,14 +1,16 @@
-extends Marker2D
+extends Label
 
+func _ready():
+	pass
 
-@export var popup_node : PackedScene
-
-
-#NOT IMPLEMENTED YET. FEEL FREE TO DELETE!
-func popup_stat_gain():
-	var popup = popup_node.instantiate()
-	popup.position = global_position
+func display_popup(amount : int , stat_name : String):
+	set_text("+"+str(amount)+" "+stat_name)
+	print(stat_name)
+	show()
+	$StatGainPopupHideTimer.start()
+	return
 	
-	get_tree().current_scene.add_child(popup)
-	
-	
+
+
+func _on_stat_gain_popup_hide_timer_timeout():
+	hide()

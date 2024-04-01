@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://WorldMechanics.gd" id="4_bosov"]
 [ext_resource type="Script" path="res://StatsPanel.gd" id="5_0jc0r"]
 [ext_resource type="Script" path="res://StatGainPopup.gd" id="5_4d2oi"]
-[ext_resource type="PackedScene" uid="uid://d0wiixpescf8i" path="res://stat_gained_popup.tscn" id="6_n2tkg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3c2i6"]
 bg_color = Color(0, 0, 0, 1)
@@ -22,6 +21,9 @@ bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bs6mu"]
 bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8t1ra"]
+bg_color = Color(0.458824, 0.592157, 0.894118, 1)
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -119,11 +121,6 @@ offset_right = 504.0
 offset_bottom = 116.0
 text = "Show Stats "
 
-[node name="StatGainPopup" type="Marker2D" parent="ShowStatsButton"]
-position = Vector2(47, 0)
-script = ExtResource("5_4d2oi")
-popup_node = ExtResource("6_n2tkg")
-
 [node name="StatsPanel" type="RichTextLabel" parent="."]
 layout_mode = 0
 offset_left = 333.0
@@ -133,8 +130,26 @@ offset_bottom = 390.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_bs6mu")
 script = ExtResource("5_0jc0r")
 
+[node name="StatGainPopup" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 497.0
+offset_top = 423.0
+offset_right = 678.0
+offset_bottom = 515.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_8t1ra")
+text = "+7 strenght"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_4d2oi")
+
+[node name="StatGainPopupHideTimer" type="Timer" parent="StatGainPopup"]
+wait_time = 3.0
+
 [connection signal="pressed" from="explore_wasteland_button" to="." method="_on_explore_wasteland_button_pressed"]
 [connection signal="pressed" from="return_from_wasteland" to="." method="_on_return_from_wasteland_pressed"]
 [connection signal="timeout" from="ExplorationTickTimer" to="." method="_on_exploration_tick_timer_timeout"]
 [connection signal="pressed" from="RestButton" to="." method="_on_rest_button_pressed"]
 [connection signal="pressed" from="ShowStatsButton" to="StatsPanel" method="_on_show_stats_button_pressed"]
+[connection signal="timeout" from="StatGainPopup/StatGainPopupHideTimer" to="StatGainPopup" method="_on_stat_gain_popup_hide_timer_timeout"]

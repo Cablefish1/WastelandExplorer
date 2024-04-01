@@ -41,7 +41,7 @@ func roll_stat(stat_name,dificulty):
 		stat_roll = stat_roll + stats[stat_name]
 		print("Stat roll "+str(stat_roll))
 		if (stat_roll >= dificulty):
-			if (stat_roll <= dificulty + 10):
+			if (stat_roll <= dificulty + 30):
 				improve_stat(stat_name)
 				
 				
@@ -55,9 +55,11 @@ func roll_stat(stat_name,dificulty):
 func improve_stat(stat_name):
 	var amount_to_improve = dicebag.roll_dice(1, 10)
 	stats[stat_name] = stats[stat_name] + amount_to_improve
+	print("You improve "+stat_name+" by "+str(amount_to_improve))
+	$"../StatGainPopup".display_popup(amount_to_improve, stat_name)
 	#Create a floating text node
 	#maybe from this video: https://www.youtube.com/watch?v=zGng3u9Y6dg
-	print("You improve "+stat_name+" by "+str(amount_to_improve))
+
 	return
 
 	
