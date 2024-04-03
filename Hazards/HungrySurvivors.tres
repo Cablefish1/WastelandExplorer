@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Hazards" load_steps=2 format=3 uid="uid://84oh8rnn5pp0"]
+
+[ext_resource type="Script" path="res://Hazards.gd" id="1_qgoqt"]
+
+[resource]
+script = ExtResource("1_qgoqt")
+hazard_name = "Hidden Trap"
+description = "Someone left a trap in your path."
+stat_to_overcome = 1
+dificulty = 40
+good_outcome = "Perception Succes:
+You spot the trap well ahead of time avoiding it deftly."
+bad_outcome = "Perception Failure:
+You fal into the trap. Fortunately it wasn't made for humans but it still hurts."
+stuff_to_loose = 0
+min_damage_amount = 1
+max_damage_amount = 4

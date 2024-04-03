@@ -147,6 +147,8 @@ script = ExtResource("5_4d2oi")
 [node name="StatGainPopupHideTimer" type="Timer" parent="StatGainPopup"]
 wait_time = 3.0
 
+[node name="ResourcePreloader" type="ResourcePreloader" parent="."]
+
 [connection signal="pressed" from="explore_wasteland_button" to="." method="_on_explore_wasteland_button_pressed"]
 [connection signal="pressed" from="return_from_wasteland" to="." method="_on_return_from_wasteland_pressed"]
 [connection signal="timeout" from="ExplorationTickTimer" to="." method="_on_exploration_tick_timer_timeout"]

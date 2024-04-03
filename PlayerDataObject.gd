@@ -8,6 +8,8 @@ extends Node
 @export var health : int = max_health
 @export var rads : int = 0
 
+@export var improve_stat_margin : int = 10
+
 var stat_improved : String = "" 
 
 @export var stats : Dictionary = {
@@ -41,7 +43,7 @@ func roll_stat(stat_name,dificulty):
 		stat_roll = stat_roll + stats[stat_name]
 		print("Stat roll "+str(stat_roll))
 		if (stat_roll >= dificulty):
-			if (stat_roll <= dificulty + 30):
+			if (stat_roll <= dificulty + improve_stat_margin):
 				improve_stat(stat_name)
 				
 				
@@ -57,8 +59,7 @@ func improve_stat(stat_name):
 	stats[stat_name] = stats[stat_name] + amount_to_improve
 	print("You improve "+stat_name+" by "+str(amount_to_improve))
 	$"../StatGainPopup".display_popup(amount_to_improve, stat_name)
-	#Create a floating text node
-	#maybe from this video: https://www.youtube.com/watch?v=zGng3u9Y6dg
+
 
 	return
 

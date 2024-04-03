@@ -1,5 +1,6 @@
 extends Node
 
+
 @onready var player = $"../PlayerDataObject"
 @onready var dicebag = Dicebag.new()
 @export var chance_of_hazards : int = 20 #chance of encountering a hazard in percent
@@ -8,7 +9,7 @@ extends Node
 var stat_improved : String  = ""
 
 func resolve_hazard():
-	var hazard_file_name = get_hazard_file_name_from_folder()
+	var hazard_file_name = get_hazard_file_name()
 	var hazard = load("res://Hazards/"+hazard_file_name)
 	storyteller.tell_player("[color=yellow]You encounter: "+hazard.hazard_name+".[/color]")
 	storyteller.tell_player(hazard.description)
@@ -31,9 +32,8 @@ func resolve_hazard():
 		
 	
 
-func get_hazard_file_name_from_folder():
-	var hazards_dir = DirAccess.open("res://Hazards/")
-	var hazards : Array = hazards_dir.get_files()
+func get_hazard_file_name():
+	var hazards : Array = ["HiddenTrap.tres", "HungrySurvivors.tres", "RadiationPocket.tres", "RapidAnimal.tres", "SlipperyRocks.tres", "TrafficJam.tres"] 
 	var hazard_file_name = hazards.pick_random()
 	return hazard_file_name
 	

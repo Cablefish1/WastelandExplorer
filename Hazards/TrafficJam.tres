@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Hazards" load_steps=2 format=3 uid="uid://c73h0r3sgpoub"]
+
+[ext_resource type="Script" path="res://Hazards.gd" id="1_m8uvj"]
+
+[resource]
+script = ExtResource("1_m8uvj")
+hazard_name = "Hungry Survivors"
+description = "You come across a bunch of hungry survivors like you searching for food and shelter. They seem jumpy as if they are consider robbing you!"
+stat_to_overcome = 5
+dificulty = 40
+good_outcome = "Charisma Succes:
+You manege to persuade them to leave you and your stuff alone. They wanter off to search for food and shelter elsewhere."
+bad_outcome = "Charisma Failure:
+A number of the group decides to jump you and take your supplies. They manege to get a few good blows in before the more conscious member of the group manege to restrain them giving you time to flee."
+stuff_to_loose = 0
+min_damage_amount = 1
+max_damage_amount = 4

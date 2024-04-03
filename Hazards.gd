@@ -4,6 +4,7 @@ class_name Hazards
 #Some way to load stuff
 
 
+
 @export var hazard_name : String 
 
 @export_multiline var description

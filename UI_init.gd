@@ -1,9 +1,9 @@
 extends Control
 
-###player vars
+#player vars
 var wasteland_ticks : int = 0
 var distance_from_safehouse : int = 0
-var chance_of_hazards : int = 20 #chance of encountering something in the wasteland in percent.
+@export var chance_of_hazards : int = 20 #chance of encountering something in the wasteland in percent.
 
 var debug = true
 
@@ -115,3 +115,30 @@ func hide_all_buttons():
 	$RestButton.hide()
 
 
+
+''' Nancok's script!
+static func get_all_resources_in_folder(folder: String) -> Array[Resource]:
+	assert( not folder.ends_with("/") )
+	var output: Array[Resource]
+	if folder.begins_with("res://") and not OS.has_feature("editor"):
+		for file: String in DirAccess.get_files_at(folder):
+			var file_name: String = file
+			## Only deal with imported resources
+			if not file_name.get_extension() == "remap":
+				continue
+				file_name = file_name.trim_suffix(".remap")
+				if not file_name.get_extension() == "tres":
+					continue
+				var res: Resource = load(folder + "/" + file_name)
+				if res is Resource:
+					output.append(res)
+	else:
+		for file: String in DirAccess.get_files_at(folder):
+			var file_name: String = file
+			if not file_name.get_extension() == "tres":
+				continue
+			var res: Resource = load(folder + "/" + file_name)
+			if res is Resource:
+				output.append(res)
+		return output
+'''

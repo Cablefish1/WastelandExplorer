@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Hazards" load_steps=2 format=3 uid="uid://b8omd1sid6rxy"]
+
+[ext_resource type="Script" path="res://Hazards.gd" id="1_8jx4b"]
+
+[resource]
+script = ExtResource("1_8jx4b")
+hazard_name = "Traffic Jam"
+description = "The only bridge across an unsafe chasm is jam packed with cars, trucks and other vehicles abandoned when the bombs fell."
+stat_to_overcome = 4
+dificulty = 40
+good_outcome = "Intelligence Succes:
+You manege to jump start a truck and using it to push the other vehicles out of the way."
+bad_outcome = "Intelligence Failure:
+Unable to cross the bridge you have to climb the chasm. You hurt yourself in the process!"
+stuff_to_loose = 0
+min_damage_amount = 1
+max_damage_amount = 4
