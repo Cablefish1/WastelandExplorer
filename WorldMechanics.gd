@@ -12,8 +12,8 @@ func resolve_hazard():
 	var hazard_file_name = get_hazard_file_name()
 	var hazard = load("res://Hazards/"+hazard_file_name)
 	storyteller.tell_player("[color=yellow]You encounter: "+hazard.hazard_name+".[/color]")
-	storyteller.tell_player(hazard.description)
-	# The folloing array translates the hazards enum to a string that can be read by the dictionary in the playerscript. 
+	storyteller.tell_player("[color=yellow]"+hazard.description+".[/color]")
+	# The following array translates the hazards enum to a string that can be read by the dictionary in the playerscript. 
 	# Very important this is identical to the stat order in the PlayerDataObject!
 	var stats = ["Strength", "Perception", "Constitution", "Dexterity", "Intelligence", "Charisma"] 
 
@@ -28,12 +28,16 @@ func resolve_hazard():
 		storyteller.tell_player("[color=red]You take "+str(damage_taken)+" damage[/color]")
 		player.health = player.health - damage_taken
 		$"..".update_health_bar()
-		#resolve bad stuff + check if dead
+		$"..".check_if_dead()
 		
 	
 
 func get_hazard_file_name():
-	var hazards : Array = ["HiddenTrap.tres", "HungrySurvivors.tres", "RadiationPocket.tres", "RapidAnimal.tres", "SlipperyRocks.tres", "TrafficJam.tres"] 
+	var hazards : Array
+	match $"..".exploration_zone:
+		"Suburban Wasteland":
+			hazards = ["HiddenTrap.tres", "HungrySurvivors.tres", "RadiationPocket.tres", "RapidAnimal.tres", "SlipperyRocks.tres", "TrafficJam.tres"]
+			
 	var hazard_file_name = hazards.pick_random()
 	return hazard_file_name
 	

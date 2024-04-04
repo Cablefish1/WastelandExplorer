@@ -31,22 +31,40 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_j44u1")
+distance_from_safehouse = 1950
 
-[node name="explore_wasteland_button" type="Button" parent="."]
+[node name="explore_suburban_wasteland" type="Button" parent="."]
 layout_mode = 0
 offset_left = 83.0
 offset_top = 203.0
 offset_right = 263.0
 offset_bottom = 234.0
-text = "Explore the wasteland"
+text = "Explore Suburban Wasteland"
 
-[node name="return_from_wasteland" type="Button" parent="."]
+[node name="explore_city_core" type="Button" parent="."]
 visible = false
 layout_mode = 0
-offset_left = 66.0
-offset_top = 265.0
-offset_right = 283.0
-offset_bottom = 296.0
+offset_left = 115.0
+offset_top = 246.0
+offset_right = 282.0
+offset_bottom = 277.0
+text = "Explore city core"
+
+[node name="explore_wildlands" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 101.0
+offset_top = 293.0
+offset_right = 294.0
+offset_bottom = 324.0
+text = "Explore the wildlands"
+
+[node name="return_from_wasteland" type="Button" parent="."]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 372.0
+offset_right = 306.0
+offset_bottom = 403.0
 text = "Return from the wasteland
 "
 
@@ -149,7 +167,9 @@ wait_time = 3.0
 
 [node name="ResourcePreloader" type="ResourcePreloader" parent="."]
 
-[connection signal="pressed" from="explore_wasteland_button" to="." method="_on_explore_wasteland_button_pressed"]
+[connection signal="pressed" from="explore_suburban_wasteland" to="." method="_on_explore_suburban_wasteland_pressed"]
+[connection signal="pressed" from="explore_city_core" to="." method="_on_explore_city_core_pressed"]
+[connection signal="pressed" from="explore_wildlands" to="." method="_on_explore_wildlands_pressed"]
 [connection signal="pressed" from="return_from_wasteland" to="." method="_on_return_from_wasteland_pressed"]
 [connection signal="timeout" from="ExplorationTickTimer" to="." method="_on_exploration_tick_timer_timeout"]
 [connection signal="pressed" from="RestButton" to="." method="_on_rest_button_pressed"]
