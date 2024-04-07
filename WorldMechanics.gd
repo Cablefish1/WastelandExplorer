@@ -3,8 +3,11 @@ extends Node
 
 @onready var player = $"../PlayerDataObject"
 @onready var dicebag = Dicebag.new()
-@export var chance_of_hazards : int = 20 #chance of encountering a hazard in percent
+
 @onready var storyteller = $"../Storyteller"
+
+
+@export var chance_of_hazards : int = 20 #chance of encountering a hazard in percent
 
 var stat_improved : String  = ""
 
@@ -36,7 +39,7 @@ func get_hazard_file_name():
 	var hazards : Array
 	match $"..".exploration_zone:
 		"Suburban Wasteland":
-			hazards = ["HiddenTrap.tres", "HungrySurvivors.tres", "RadiationPocket.tres", "RapidAnimal.tres", "SlipperyRocks.tres", "TrafficJam.tres"]
+			hazards = ["subHiddenTrap.tres", "subHungrySurvivors.tres", "subRadiationPocket.tres", "subRapidAnimal.tres", "subSlipperyRocks.tres", "subTrafficJam.tres"]
 			
 	var hazard_file_name = hazards.pick_random()
 	return hazard_file_name

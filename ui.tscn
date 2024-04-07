@@ -65,7 +65,7 @@ offset_left = 89.0
 offset_top = 372.0
 offset_right = 306.0
 offset_bottom = 403.0
-text = "Return from the wasteland
+text = "Stop exploring
 "
 
 [node name="Storyteller" type="RichTextLabel" parent="."]
